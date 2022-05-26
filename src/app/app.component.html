@@ -2,8 +2,9 @@
 <div class="row">
   <div class="col">
   <nav>
-  <button (click)="started=false">Home</button>
-  <button>Starship</button>
+  <button (click)="started=false" routerLink="">Home</button>
+  <button
+  routerLink="starship"  (click)="started=true" >Starship</button>
   <button>log in</button>
   <button>sign up</button>
 </nav>
@@ -11,7 +12,7 @@
 <div *ngIf="started===false">
   <p>Bienvenido: Esta página muestra el listado de naves de las saga Starwars</p>
   <p>-Para per el listado de naves debe hacer click en el boton starship</p>
-  <p>-Debe primero loeagrse en log-in</p>
+  <p>-Debe primero logearse en log-in</p>
   <p>-Si no tiene usario de varse de alta en sign-up</p>
   <button (click)="started=!started">Comenzar</button>
 </div>
@@ -19,5 +20,8 @@
 </div>
 
 </div>
+<router-outlet></router-outlet>
+
+
 
 </div>
