@@ -3,8 +3,14 @@
       
     <div class="list-group list-reset color-dark">
 
-      <a *ngfor="let item of startShipList " href="#" class="list-group-item list-group-item-action">
-        {{item.name}}</a>
+
+      <a *ngFor="let items of startShipList " href="#" class="list-group-item list-group-item-action">
+      <h3>{{items.name}}</h3>
+      <h4>{{items.model}}</h4>
+
+
+      
+      </a>
 
     </div>
 
