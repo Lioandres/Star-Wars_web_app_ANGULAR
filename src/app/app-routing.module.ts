@@ -2,6 +2,7 @@ import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { StarshipListComponent } from "./starship-list/starship-list.component";
+import { ShipComponent } from './ship/ship.component';
 
 
 const appRoutes:Routes=[
@@ -12,11 +13,16 @@ const appRoutes:Routes=[
     //   pathMatch:'full'
     // },
     {
-      path:'starship',
+      path:'starshipList',
       component:StarshipListComponent,
       pathMatch:'full'
     },
-     {
+    {
+      path:'starshipList/ship',
+      component:ShipComponent,
+      pathMatch:'full'
+    },
+    {
       path:'**',
       redirectTo:''
     }
@@ -26,6 +32,7 @@ const appRoutes:Routes=[
   @NgModule({
     declarations: [
       StarshipListComponent,
+      ShipComponent
 
       
     ],

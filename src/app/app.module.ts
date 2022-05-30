@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { CommonModule } from "@angular/common";
+import { RouterModule } from '@angular/router';
+
 
 
 
@@ -13,6 +15,7 @@ import { CommonModule } from "@angular/common";
 @NgModule({
   declarations: [
     AppComponent,
+  
  
   
   ],
@@ -21,7 +24,8 @@ import { CommonModule } from "@angular/common";
     CommonModule,
     NgbModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule
     
     
   ],

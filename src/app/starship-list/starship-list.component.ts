@@ -20,6 +20,10 @@ export class StarshipListComponent implements OnInit {
     return this.auxServ.startShipList
   }
 
+  buscar(){
+    console.log(this.startShipList)
+  }
+
  
 
   
