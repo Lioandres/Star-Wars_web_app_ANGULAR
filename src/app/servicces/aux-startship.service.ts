@@ -10,11 +10,13 @@ export class AuxStartshipService {
   constructor(private http:HttpClient) { }
 
   _startShipList:Ship[]=[]
+  pageInfo=""
 
   getStarshipList(){
     this.http.get<ShipList>('https://swapi.dev/api/starships')
     .subscribe((resp:ShipList)=>{
     this._startShipList=resp.results
+    this.pageInfo=resp.next
     console.log(this._startShipList)
     
     })
@@ -55,14 +57,29 @@ _ship:Ship|undefined={
     return this._ship
   }
 
-  getShipImg(id:number){
-    this.http.get<ShipList>(`https://starwars-visualguide.com/assets/img/starships/${id}.jpg`)
+  // getShipImg(id:number){
+  //   this.http.get<ShipList>(`https://starwars-visualguide.com/assets/img/starships/${id}.jpg`)
+  //   .subscribe((resp:ShipList)=>{
+  //   this._startShipList=resp.results
+  //   console.log(this._startShipList)
+    
+  //   })
+
+  // }
+
+
+  showMoreShip() {
+    if (this.pageInfo!=null) {
+    this.http.get<ShipList>(this.pageInfo)
     .subscribe((resp:ShipList)=>{
     this._startShipList=resp.results
+    this.pageInfo=resp.next
     console.log(this._startShipList)
     
     })
 
   }
+  else this.pageInfo='https://swapi.dev/api/starships/?page=1'
+}
 
 }

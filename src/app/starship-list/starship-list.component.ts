@@ -27,6 +27,10 @@ export class StarshipListComponent implements OnInit {
    this.auxServ.showShipAux(argument)
   }
 
+  showMoreShip(){
+    this.auxServ.showMoreShip()
+  }
+
  
 
   

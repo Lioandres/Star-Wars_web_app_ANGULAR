@@ -7,10 +7,11 @@
       <li (click)="showShip(items.name)" routerLink="ship" *ngFor="let items of startShipList " class="list-group-item list-group-item-action">
         <h3 >{{items.name}}</h3>
         <h4>{{items.model}}</h4>
-        
       </li>
 
     </ul>
+
+    <button (click)="showMoreShip()" class="btn btn-dark">Show More</button>
 
 
 
