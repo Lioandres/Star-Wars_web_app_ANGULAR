@@ -1,27 +1,31 @@
-<div class="container">
-<div class="row">
-  <div class="col">
-  <nav>
-  <button (click)="started=false" routerLink="">Home</button>
-  <button
-  routerLink="starshipList"  (click)="started=true" >Starship List</button>
-  <button>log in</button>
-  <button>sign up</button>
+<nav class="navbar bg-dark ">
+  <div class="container-fluid ">
+    <a class="navbar-brand text-white" (click)="started=false" routerLink="">Home</a>
+    <a class="navbar-brand text-white me-1"   (click)="started=true" routerLink="starshipList"> START SHIP LIST</a>
+    
+  <div class="d-flex" role="search">
+      <a class="navbar-brand text-white" (click)="started=false" routerLink="">LOG IN</a>
+      <a routerLink="starshipList"  (click)="started=true"class="navbar-brand text-white">SIGN UP</a>
+ </div>
+  </div>
 </nav>
-
 <div *ngIf="started===false">
-  <p>Bienvenido: Esta página muestra el listado de naves de las saga Starwars</p>
-  <p>-Para per el listado de naves debe hacer click en el boton starship</p>
-  <p>-Debe primero logearse en log-in</p>
-  <p>-Si no tiene usario de varse de alta en sign-up</p>
-  <button (click)="started=!started">Comenzar</button>
-</div>
-
-</div>
+  <div class="card">
+    <div class="card-body text-center">
+      <h5 class="card-title">Bienvenido</h5>
+      <p class="card-text">Esta página muestra el listado de naves de las saga Starwars</p>
+      <p class="card-text">-Para per el listado de naves debe hacer click en el boton starship</p>
+      <p class="card-text">-Debe primero logearse en log-in</p>
+      <p class="card-text">-Si no tiene usario debe darse de alta en sign-up</p>
+      <button class="btn bg-dark text-white" type="button" (click)="started=!started">Comenzar</button>
+    </div>
+     
+    <img src="assets/img/logo.jpg" style="height: 600px;" class="card-img-bottom" alt="...">
+  </div>
+  <div class="d-grid gap-2 col-6 mx-auto">
+   
+    
+  </div>
 
 </div>
 <router-outlet></router-outlet>
-
-
-
-</div>

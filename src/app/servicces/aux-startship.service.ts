@@ -1,13 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Ship, ShipList } from '../Interfaces/StarshipResponse.interface';
+import { Users } from '../Interfaces/user.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuxStartshipService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient) {
+    this.userRepository=JSON.parse(localStorage.getItem('users')!)||[]
+   }
 
   _startShipList:Ship[]=[]
   pageInfo=""
@@ -57,17 +60,6 @@ _ship:Ship|undefined={
     return this._ship
   }
 
-  // getShipImg(id:number){
-  //   this.http.get<ShipList>(`https://starwars-visualguide.com/assets/img/starships/${id}.jpg`)
-  //   .subscribe((resp:ShipList)=>{
-  //   this._startShipList=resp.results
-  //   console.log(this._startShipList)
-    
-  //   })
-
-  // }
-
-
   showMoreShip() {
     if (this.pageInfo!=null) {
     this.http.get<ShipList>(this.pageInfo)
@@ -81,5 +73,13 @@ _ship:Ship|undefined={
   }
   else this.pageInfo='https://swapi.dev/api/starships/?page=1'
 }
+
+
+userRepository:Users[]= [{userName:"",userMail:"",userpassword:""}]
+
+logIn(){
+  localStorage.setItem('users',JSON.stringify(this.userRepository))
+}
+
 
 }
