@@ -4,8 +4,8 @@
     <a class="navbar-brand text-white me-1"   (click)="started=true" routerLink="starshipList"> START SHIP LIST</a>
     
   <div class="d-flex" role="search">
-      <a class="navbar-brand text-white" (click)="started=false" routerLink="">LOG IN</a>
-      <a routerLink="starshipList"  (click)="started=true"class="navbar-brand text-white">SIGN UP</a>
+      <a class="navbar-brand text-white" (click)="started=true" routerLink="logIn">{{logInUser}}</a>
+      <a class="navbar-brand text-white"   (click)="started=true"routerLink="signUp">SIGN UP</a>
  </div>
   </div>
 </nav>
