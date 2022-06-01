@@ -19,7 +19,7 @@ export class AppComponent {
   }
 
   showNotice(){
-    if(!this.auxServ.loggedIn) alert('Debe hacer log-in para acceder')
+    this.auxServ.showNotice()
   }
 
   title = 'Spring_8_Tasca';

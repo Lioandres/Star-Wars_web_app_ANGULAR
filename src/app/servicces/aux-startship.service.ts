@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Ship, ShipList } from '../Interfaces/StarshipResponse.interface';
 import { Users } from '../Interfaces/user.interface';
+import { Pilot } from '../Interfaces/pilots.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -107,7 +108,7 @@ export class AuxStartshipService {
       this.route.navigate(['starshipList'])
       this._logInUser=`Bienvenido ${name}-LOG OUT`
       this._loggedIn=true
-    } else alert('el mail o usiario es incorrecto');
+    } else alert('el usuario o contraseña es incorrecto');
   }
 
   logOut() {
@@ -118,5 +119,25 @@ export class AuxStartshipService {
     }
   }
 
+  showNotice(){
+    if(!this.loggedIn) {
+      alert('Debe hacer log-in para acceder')
+    this.route.navigate(['logIn'])
+    }
+  }
+
+
+
+  getPilots() {
+    this._ship?.pilots.forEach(pilot => {
+      
+    
+    this.http.get<Pilot>(pilot)
+      .subscribe((resp: Pilot) => {
+        console.log(resp);
+      })
+    })
+  }
+ 
 
 }
