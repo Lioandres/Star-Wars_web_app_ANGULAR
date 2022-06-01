@@ -76,9 +76,14 @@ export class AuxStartshipService {
   }
 
   _logInUser:string='LOG IN'
+  _loggedIn:boolean=false
 
   get logInUser():string{
     return this._logInUser
+  }
+
+  get loggedIn():boolean{
+    return this._loggedIn
   }
 
   signUp(userInput: Users) {
@@ -88,18 +93,30 @@ export class AuxStartshipService {
     ) {
       this._userRepository.push(userInput);
       localStorage.setItem('users', JSON.stringify(this._userRepository));
-      this.route.navigate(['starshipList'])
-      this._logInUser=`Bienvenido ${userInput.userName}`
+      this.route.navigate(['logIn'])
+      //this._logInUser=`Bienvenido ${userInput.userName}`
     } else alert('el mail o usiario ya existen');
   }
   
   logIn(name:string,password:string) {
+    
     if (
       this._userRepository.find((user) => user.userName === name) &&
       this._userRepository.find((user) => user.userpassword === password)
     ) {
       this.route.navigate(['starshipList'])
-      this._logInUser=`Bienvenido ${name}`
+      this._logInUser=`Bienvenido ${name}-LOG OUT`
+      this._loggedIn=true
     } else alert('el mail o usiario es incorrecto');
   }
+
+  logOut() {
+    if(this.loggedIn===true){
+      this._logInUser='LOG IN'
+      this._loggedIn=false
+      console.log('logeado:', false)
+    }
+  }
+
+
 }

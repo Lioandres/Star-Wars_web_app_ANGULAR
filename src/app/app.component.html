@@ -1,11 +1,11 @@
 <nav class="navbar bg-dark ">
   <div class="container-fluid ">
     <a class="navbar-brand text-white" (click)="started=false" routerLink="">Home</a>
-    <a class="navbar-brand text-white me-1"   (click)="started=true" routerLink="starshipList"> START SHIP LIST</a>
+    <a class="navbar-brand text-white me-1"   (click)="started=true;showNotice()" routerLink="starshipList"> START SHIP LIST</a>
     
   <div class="d-flex" role="search">
-      <a class="navbar-brand text-white" (click)="started=true" routerLink="logIn">{{logInUser}}</a>
-      <a class="navbar-brand text-white"   (click)="started=true"routerLink="signUp">SIGN UP</a>
+      <a class="navbar-brand text-white" (click)="started=true ; logOut()" routerLink="logIn">{{logInUser}}</a>
+      <a class="navbar-brand text-white"   (click)="started=true "routerLink="signUp">SIGN UP</a>
  </div>
   </div>
 </nav>

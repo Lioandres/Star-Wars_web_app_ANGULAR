@@ -13,6 +13,15 @@ export class AppComponent {
   get logInUser(){
     return this.auxServ.logInUser
   }
+
+  logOut(){
+    this.auxServ.logOut()
+  }
+
+  showNotice(){
+    if(!this.auxServ.loggedIn) alert('Debe hacer log-in para acceder')
+  }
+
   title = 'Spring_8_Tasca';
 
   started:boolean=false
