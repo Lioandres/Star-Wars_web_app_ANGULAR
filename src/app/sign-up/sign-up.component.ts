@@ -19,7 +19,9 @@ export class SignUpComponent implements OnInit {
     password:["",[Validators.required,Validators.minLength(8)]],
     mail:["",[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
     repeatMail:["",[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]]
-  })
+  },
+  //{Validation:[Validators. ('mail','repeatMail')]}
+  )
 
   submit() {
     if (this.signUpForm.valid) {

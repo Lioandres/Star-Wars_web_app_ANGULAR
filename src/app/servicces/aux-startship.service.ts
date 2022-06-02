@@ -5,6 +5,8 @@ import { Ship, ShipList } from '../Interfaces/StarshipResponse.interface';
 import { Users } from '../Interfaces/user.interface';
 import { Pilot } from '../Interfaces/pilots.interface';
 
+
+
 @Injectable({
   providedIn: 'root',
 })
@@ -95,8 +97,7 @@ export class AuxStartshipService {
       this._userRepository.push(userInput);
       localStorage.setItem('users', JSON.stringify(this._userRepository));
       this.route.navigate(['logIn'])
-      //this._logInUser=`Bienvenido ${userInput.userName}`
-    } else alert('el mail o usiario ya existen');
+     } else alert('el mail o usiario ya existen');
   }
   
   logIn(name:string,password:string) {
@@ -127,17 +128,16 @@ export class AuxStartshipService {
   }
 
 
-
+pilots:Pilot[]=[]
   getPilots() {
-    this._ship?.pilots.forEach(pilot => {
-      
-    
+    this.pilots=[]
+    this._ship?.pilots.forEach(pilot => {    
     this.http.get<Pilot>(pilot)
-      .subscribe((resp: Pilot) => {
-        console.log(resp);
-      })
+      .subscribe((resp: Pilot) => {this.pilots.push(resp)})
     })
+   
   }
+
  
 
 }
