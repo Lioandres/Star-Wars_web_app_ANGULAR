@@ -20,7 +20,20 @@
       
     </div>
     <button (click)="showPilots()">show pilots</button>
-  </div>
+
+    <!-- <div *ngIf="pilotNames.length===0; else elseTemplate">
+      No hay pilotos en esta nave
+    </div> -->
+    <!-- <ng-template #elseTemplate>
+      <li *ngFor="let pilot of pilotNames">{{pilot}}</li>
+    </ng-template>
+    
+   -->
+   
+    <li *ngFor="let pilot of pilotNames">{{pilot}}</li>
+
+  
+
 
 
 

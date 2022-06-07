@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Ship, ShipList } from '../Interfaces/StarshipResponse.interface';
 import { Users } from '../Interfaces/user.interface';
 import { Pilot } from '../Interfaces/pilots.interface';
+import { Observable } from 'rxjs';
 
 
 
@@ -128,16 +129,33 @@ export class AuxStartshipService {
   }
 
 
-pilots:Pilot[]=[]
+pilots:string[]=[]
   getPilots() {
     this.pilots=[]
     this._ship?.pilots.forEach(pilot => {    
     this.http.get<Pilot>(pilot)
-      .subscribe((resp: Pilot) => {this.pilots.push(resp)})
-    })
-   
+      .subscribe((resp: Pilot) => {this.pilots.push(resp.name)})
+    }) 
+
   }
 
- 
+observable = new Observable (subscriber => {
+    subscriber.next();
+    subscriber.complete()  
+  });
 
+
+showPilots(){
+  console.log('just before subscribe');
+this.observable.subscribe({
+  next:()=> this.getPilots(),
+  error:(err:any)=>console.error('something wrong occurred: ' + err),
+  complete: ()=> {if(this.pilots.length===0) this.pilots=['no hay pilotos en esta nave'];console.log(this.pilots)},
+});
+}
+
+get pilotNames(){
+  return this.pilots
+}
+ 
 }

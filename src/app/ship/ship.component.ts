@@ -21,35 +21,24 @@ export class ShipComponent implements OnInit {
   this.source=`https://starwars-visualguide.com/assets/img/starships/${this.id}.jpg`
   console.log(this.source)
   typeof(this.source)
-
-
-  this.observable = new Observable (subscriber => {
-    subscriber.next();
-    subscriber.complete()  
-  });
-
-
 }
-
 
   id:any=0
   source:string=""
-  get ship(){
+get ship(){
     return this.auxServ.ship
   }
 
-
 showPilots(){
-  console.log('just before subscribe');
-this.observable.subscribe({
-  next:()=> this.auxServ.getPilots(),
-  error:(err:any)=>console.error('something wrong occurred: ' + err),
-  complete: ()=> console.log(this.auxServ.pilots),
-});
-console.log('just after subscribe');
-
-
+  this.auxServ.showPilots()
 }
+
+get pilotNames(){
+ return this.auxServ.pilotNames
+}
+
+
+
 
 }
 
