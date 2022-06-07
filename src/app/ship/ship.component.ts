@@ -12,7 +12,7 @@ export class ShipComponent implements OnInit {
   constructor(private auxServ:AuxStartshipService) { }
 
   observable:any
-
+  pilotShip:string[]=[]
   ngOnInit(  ): void   {
 
   let numberShip:any=this.ship?.url.match(/\d+/g)
@@ -21,21 +21,26 @@ export class ShipComponent implements OnInit {
   this.source=`https://starwars-visualguide.com/assets/img/starships/${this.id}.jpg`
   console.log(this.source)
   typeof(this.source)
+
+  this.pilotShip=[]
 }
 
   id:any=0
   source:string=""
-get ship(){
+
+
+  get ship(){
     return this.auxServ.ship
   }
 
+
+showPilotsToggle:boolean=false
 showPilots(){
-  this.auxServ.showPilots()
+ this.auxServ.showPilots()
+ this.pilotShip=this.auxServ.pilotNames
 }
 
-get pilotNames(){
- return this.auxServ.pilotNames
-}
+
 
 
 

@@ -19,7 +19,7 @@
                     <div class="warning" *ngIf="signUpForm.get('mail')?.invalid && signUpForm.get('mail')?.touched">Direccion de mail no válida</div>
                 </div>
                 <div class="mb-3">
-                    <label for="repeatMail" class="form-label">repeat Email address</label>
+                    <label for="repeatMail" class="form-label">Confirm Email address</label>
                     <input formControlName="repeatMail" class="form-control" id="repeatMail">
                     <div class="warning" *ngIf="signUpForm.get('repeatMail')?.invalid && (signUpForm.get('repeatMail')?.value!=signUpForm.get('mail')?.value) && signUpForm.get('repeatMail')?.touched">Debe contener 5 caracteres min</div>
                     <div class="warning" *ngIf="signUpForm.get('repeatMail')?.value!=signUpForm.get('mail')?.value">Los mails no coinciden</div>

@@ -129,12 +129,12 @@ export class AuxStartshipService {
   }
 
 
-pilots:string[]=[]
+_pilotNames:string[]=[]
   getPilots() {
-    this.pilots=[]
+    this._pilotNames=[]
     this._ship?.pilots.forEach(pilot => {    
     this.http.get<Pilot>(pilot)
-      .subscribe((resp: Pilot) => {this.pilots.push(resp.name)})
+      .subscribe((resp: Pilot) => {this._pilotNames.push(resp.name)})
     }) 
 
   }
@@ -150,12 +150,14 @@ showPilots(){
 this.observable.subscribe({
   next:()=> this.getPilots(),
   error:(err:any)=>console.error('something wrong occurred: ' + err),
-  complete: ()=> {if(this.pilots.length===0) this.pilots=['no hay pilotos en esta nave'];console.log(this.pilots)},
+  complete: ()=> 
+  { //if(this.pilotNames.length===0) this._pilotNames=['no hay pilotos en esta nave']; this._pilotNames;
+   console.log(this._pilotNames)},
 });
 }
 
 get pilotNames(){
-  return this.pilots
+  return this._pilotNames
 }
  
 }

@@ -19,18 +19,18 @@
       </p>
       
     </div>
-    <button (click)="showPilots()">show pilots</button>
+    <button (click)="showPilots(); showPilotsToggle=!showPilotsToggle">show pilots</button>
 
-    <!-- <div *ngIf="pilotNames.length===0; else elseTemplate">
+    <div *ngIf="pilotShip.length===0 && showPilotsToggle===true; else elseTemplate">
       No hay pilotos en esta nave
-    </div> -->
-    <!-- <ng-template #elseTemplate>
-      <li *ngFor="let pilot of pilotNames">{{pilot}}</li>
+    </div>
+    <ng-template #elseTemplate>
+      <li *ngFor="let pilot of pilotShip">{{pilot}}</li>
     </ng-template>
     
-   -->
+  
    
-    <li *ngFor="let pilot of pilotNames">{{pilot}}</li>
+    <!-- <li *ngFor="let pilot of pilotShip">{{pilot}}</li> -->
 
   
 
