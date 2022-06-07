@@ -28,4 +28,8 @@
   </div>
 
 </div>
-<router-outlet></router-outlet>
+
+
+<main [@routerAnimations]="prepareRoute(outlet)" class="content">
+  <router-outlet #outlet="outlet"></router-outlet>
+</main>
