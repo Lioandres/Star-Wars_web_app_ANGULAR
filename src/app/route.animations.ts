@@ -27,8 +27,6 @@ trigger('routeAnimations',[
             ),
 
         ])
-    ])
+    ]),
 
-
-
-])
+]);

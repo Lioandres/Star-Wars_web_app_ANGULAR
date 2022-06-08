@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Ship } from '../Interfaces/StarshipResponse.interface';
 import { AuxStartshipService } from '../servicces/aux-startship.service';
 
 @Component({
@@ -16,12 +15,10 @@ export class StarshipListComponent implements OnInit {
   }
 
 
-
   get startShipList(){
     return this.auxServ.startShipList
   }
 
-  
 
   showShip(argument:string){
    this.auxServ.showShipAux(argument)

@@ -34,7 +34,9 @@ export class AuxStartshipService {
     return [...this._startShipList];
   }
 
-  _ship: Ship | undefined = {
+
+
+   _ship: Ship | undefined = {
     name: '',
     model: '',
     manufacturer: '',
@@ -97,8 +99,10 @@ export class AuxStartshipService {
     ) {
       this._userRepository.push(userInput);
       localStorage.setItem('users', JSON.stringify(this._userRepository));
-      this.route.navigate(['logIn'])
-     } else alert('el mail o usiario ya existen');
+      this.route.navigate(['starshipList'])
+      this._logInUser=`Bienvenido ${userInput.userName}-LOG OUT`
+      this._loggedIn=true
+     } else alert('el usuario o email ya existen');
   }
   
   logIn(name:string,password:string) {
