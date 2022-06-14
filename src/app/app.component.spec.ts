@@ -16,6 +16,12 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
+  it("app to be defineds", () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    expect(app).toBeDefined();
+});
+
   it(`should have as title 'Spring_8_Tasca'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
