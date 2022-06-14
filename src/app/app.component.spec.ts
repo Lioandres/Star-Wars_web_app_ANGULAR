@@ -44,8 +44,8 @@ describe('AppComponent', () => {
         expect(app.title).toEqual('Spring_8_Tasca');
   });
 
-  it('should render title', () => {
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('Spring_8_Tasca app is running!');
-  });
+  // it('should render title', () => {
+  //   const compiled = fixture.nativeElement as HTMLElement;
+  //   expect(compiled.querySelector('.content span')?.textContent).toContain('Spring_8_Tasca app is running!');
+  // });
 });

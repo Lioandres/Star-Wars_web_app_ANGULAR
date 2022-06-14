@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { LogInComponent } from './log-in.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('LogInComponent', () => {
   let component: LogInComponent;
@@ -8,7 +11,8 @@ describe('LogInComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LogInComponent ]
+      declarations: [ LogInComponent ],
+      imports: [ReactiveFormsModule,HttpClientTestingModule,RouterTestingModule ],
     })
     .compileComponents();
   });
@@ -22,4 +26,17 @@ describe('LogInComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it("app to be defined", () => {
+    expect(component).toBeDefined();
+});
+
+it(`initialize false`, () => {
+      expect(component.logInForm.valid).toEqual(false);
+});
+
+
+
+
+
 });

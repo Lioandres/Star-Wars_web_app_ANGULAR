@@ -1,9 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SignUpComponent } from './sign-up.component';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import { AuxStartshipService } from '../servicces/aux-startship.service';
+import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
+import { RouterTestingModule } from '@angular/router/testing';
  
 
 describe('SignUpComponent', () => {
@@ -13,8 +15,8 @@ describe('SignUpComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ SignUpComponent ],
-      imports:[FormBuilder,HttpClientTestingModule],
-      providers:[AuxStartshipService]
+      imports:[ReactiveFormsModule,HttpClientTestingModule,RouterTestingModule],
+      
     })
     .compileComponents();
   });
