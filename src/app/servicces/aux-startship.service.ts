@@ -100,7 +100,7 @@ export class AuxStartshipService {
       this._userRepository.push(userInput);
       localStorage.setItem('users', JSON.stringify(this._userRepository));
       this.route.navigate(['starshipList'])
-      this._logInUser=`Bienvenido ${userInput.userName}-LOG OUT`
+      this._logInUser=`Bienvenido ${userInput.userName}`
       this._loggedIn=true
      } else alert('el usuario o email ya existen');
   }
@@ -112,7 +112,7 @@ export class AuxStartshipService {
       this._userRepository.find((user) => user.userpassword === password)
     ) {
       this.route.navigate(['starshipList'])
-      this._logInUser=`Bienvenido ${name}-LOG OUT`
+      this._logInUser=`Bienvenido ${name}`
       this._loggedIn=true
     } else alert('el usuario o contraseña es incorrecto');
   }

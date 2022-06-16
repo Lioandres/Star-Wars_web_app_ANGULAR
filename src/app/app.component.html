@@ -4,7 +4,11 @@
     <a class="navbar-brand text-white me-1"   (click)="started=true;showNotice()" routerLink="starshipList"> START SHIP LIST</a>
     
   <div class="d-flex" role="search">
-      <a class="navbar-brand text-white" (click)="started=true ; logOut()" routerLink="logIn">{{logInUser}}</a>
+      <a *ngIf="loggedIn"class="navbar-brand text-white" (click)="started=true">{{logInUser}}</a>
+      <a *ngIf="loggedIn ; else noLog" class="navbar-brand text-white" (click)="started=true ; logOut()" routerLink="logIn">LOG-OUT</a>
+      <ng-template #noLog>
+        <a class="navbar-brand text-white" (click)="started=true ; logOut()" routerLink="logIn">LOG-IN</a>
+      </ng-template>
       <a class="navbar-brand text-white"   (click)="started=true "routerLink="signUp">SIGN UP</a>
  </div>
   </div>

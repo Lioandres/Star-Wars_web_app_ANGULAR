@@ -22,6 +22,10 @@ export class AppComponent {
     return this.auxServ.logInUser
   }
 
+  get loggedIn(){
+    return this.auxServ.loggedIn
+  }
+
   logOut(){
     this.auxServ.logOut()
   }
