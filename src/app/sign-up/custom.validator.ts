@@ -1,12 +1,15 @@
-import { FormGroup, ValidationErrors, ValidatorFn } from "@angular/forms"
 
+import {ValidatorFn, ValidationErrors, AbstractControl} from '@angular/forms';
 
-export const validarQueSeanIguales: ValidatorFn = (
-  control:FormGroup): ValidationErrors |null => {
-  const mail = control.get("mail")
-  const repeatMail = control.get("repeatMail")
+export function creatDateRangeValidator(): ValidatorFn|null {
+    return (form: AbstractControl): ValidationErrors |null => {
 
-  return mail === repeatMail
-    ? null
-    : { noSonIguales: true }
-}
+        const mail= form.get("mail")?.value;
+
+        const repeatMail = form.get("repeatMail")?.value;
+
+         return   (mail===repeatMail) ? null : {'mail':true};
+
+        
+    }
+  }

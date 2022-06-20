@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuxStartshipService } from '../servicces/aux-startship.service';
-import {validarQueSeanIguales } from './custom.validator';
-
+import { creatDateRangeValidator} from './custom.validator'
 
 @Component({
   selector: 'app-sign-up',
@@ -23,14 +22,23 @@ export class SignUpComponent implements OnInit {
     name:["",[Validators.required,Validators.minLength(5)]],
     password:["",[Validators.required,Validators.minLength(8)]],
     mail:["",[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
-    repeatMail:["",[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]]
-  },{
-      validators: validarQueSeanIguales,
-    });
+    repeatMail:["",[this.ValidatePhone, Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]]
+  }, {
+    validators: [creatDateRangeValidator()]
+});
+
   
 
-   
+  ValidatePhone(control: AbstractControl): {[key: string]: any} | null  {
+    const mail = control.get("mail")
+    const repeatMail = control.get("repeatMail")  
+    if (mail!=repeatMail) {
+        return { 'mailInvalid': true };
+      }
+      return null;
+    }
     
+
   
   
 

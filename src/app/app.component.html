@@ -1,15 +1,15 @@
 <nav class="navbar bg-dark ">
   <div class="container-fluid ">
-    <a class="navbar-brand text-white" (click)="started=false" routerLink="">Home</a>
-    <a class="navbar-brand text-white me-1"   (click)="started=true;showNotice()" routerLink="starshipList"> START SHIP LIST</a>
+    <a class="navbar-brand text-white col-sm-12 col-lg-3" (click)="started=false" routerLink="">Home</a>
+    <a class="navbar-brand text-white me-1 col-sm-12 col-lg-3"   (click)="started=true;showNotice()" routerLink="starshipList"> START SHIP LIST</a>
     
   <div class="d-flex" role="search">
-      <a *ngIf="loggedIn"class="navbar-brand text-white" (click)="started=true">{{logInUser}}</a>
-      <a *ngIf="loggedIn ; else noLog" class="navbar-brand text-white" (click)="started=true ; logOut()" routerLink="logIn">LOG-OUT</a>
+      <a *ngIf="loggedIn"class="navbar-brand text-white col-6" (click)="started=true">{{logInUser}}</a>
+      <a *ngIf="loggedIn ; else noLog" class="navbar-brand text-white  col-6" (click)="started=true ; logOut()" routerLink="logIn">LOG-OUT</a>
       <ng-template #noLog>
-        <a class="navbar-brand text-white" (click)="started=true ; logOut()" routerLink="logIn">LOG-IN</a>
+        <a class="navbar-brand text-white col-6" (click)="started=true ; logOut()" routerLink="logIn">LOG-IN</a>
       </ng-template>
-      <a class="navbar-brand text-white"   (click)="started=true "routerLink="signUp">SIGN UP</a>
+      <a class="navbar-brand text-white col-6"   (click)="started=true "routerLink="signUp">SIGN UP</a>
  </div>
   </div>
 </nav>
